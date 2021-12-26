@@ -46,10 +46,6 @@
                     <a class="nav-link" href="/admin" th:if="${userRole} == 'ADMIN'">Админ панель</a>
                 </li>
             </ul>
-            <form class="d-flex" th:method="GET" th:action="@{/search}">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="name">
-                <button class="btn btn-outline-success" type="submit">Поиск</button>
-            </form>
         </div>
     </div>
 </nav>
