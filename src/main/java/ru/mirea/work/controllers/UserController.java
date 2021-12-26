@@ -259,16 +259,6 @@ public class UserController {
         return "redirect:/basket";
     }
 
-    @GetMapping("/search")
-    public String searchProduct(@RequestParam(name ="name") String name,
-                                       Model model, Authentication authentication){
-        String userRole = getUserRole(authentication);
-        model.addAttribute("userRole", userRole);
-        model.addAttribute("types", typeService.getAllTypes());
-        model.addAttribute("products",criteriaService.getAllByName(name));
-        return "UserController/search";
-    }
-
     public void authWithHttpServletRequest(HttpServletRequest request, String username, String password) {
         try {
             request.login(username, password);
