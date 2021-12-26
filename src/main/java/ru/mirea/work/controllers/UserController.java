@@ -25,6 +25,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class UserController {
+    private final String email = "example@gmail.com";
+
     private final TypeService typeService;
     private final ProductService productService;
     private final MetalTypeService metalTypeService;
@@ -254,10 +256,11 @@ public class UserController {
         String userMessage = createMessageForUser(purchaseService.getPurchasesByUserId(user.getId()));
         String managerMessage = createMessageForManager(user, address, telephone, purchaseService.getPurchasesByUserId(user.getId()));
         emailService.sendmail(user.getEmail(), userMessage, false);
-        emailService.sendmail("example@gmail.com", managerMessage, true);
+        emailService.sendmail(email, managerMessage, true);
         purchaseService.deleteAllByUserId(user.getId());
         return "redirect:/basket";
     }
+
 
     public void authWithHttpServletRequest(HttpServletRequest request, String username, String password) {
         try {

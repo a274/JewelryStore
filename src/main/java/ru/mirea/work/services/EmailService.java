@@ -13,6 +13,8 @@ import java.util.Properties;
  */
 @Service
 public class EmailService {
+    private final String email = "example@gmail.com";
+    private final String password = "******";
 
     /**
      * Асинхронный метод отправки сообщения на почту
@@ -27,12 +29,12 @@ public class EmailService {
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("example@gmail.com", "******");
+                return new PasswordAuthentication(email, password);
             }
         });
 
         Message msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("example@gmail.com", false));
+        msg.setFrom(new InternetAddress(email, false));
 
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail));
         if (isManager)
