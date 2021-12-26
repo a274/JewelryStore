@@ -22,3 +22,5 @@
 + адрес и пароль от базы данных в файле application.properties;  
 + почтовый адрес в поле email и пароль в поле password в классе services/EmailService;
 + почтовый адрес в поле email в классе controllers/UserController.
+
+Скрипты заполнения таблиц находятся в папке resources/databases. Скрипт создания таблиц init.sql выполняется при запуске проекта.  
